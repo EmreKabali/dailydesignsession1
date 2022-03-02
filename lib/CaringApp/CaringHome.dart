@@ -1,3 +1,4 @@
+import 'package:dailydesignsession1/CaringApp/Profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -73,7 +74,12 @@ class _CaringHomeState extends State<CaringHome> {
                               elevation: 4,
                               primary: Color.fromARGB(255, 113, 4, 236),
                               minimumSize: Size.fromHeight(50)),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Profile()));
+                          },
                           child: Text('Register')),
                       SizedBox(
                         height: 7,
@@ -90,6 +96,10 @@ class _CaringHomeState extends State<CaringHome> {
                             onTap: () {
                               //action here
                               //TODO go home page next episode
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Profile()));
                             },
                             child: Text(
                               'Sign in',
