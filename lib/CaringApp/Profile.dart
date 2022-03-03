@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -60,11 +61,126 @@ class _ProfileState extends State<Profile> {
                     )
                   ],
                 )),
-            Expanded(flex: 3, child: Placeholder()),
-            Expanded(flex: 3, child: Placeholder())
+            Expanded(
+                flex: 3,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      //TODO we should do dynamic rate function
+                      children: [
+                        Icon(
+                          Icons.star,
+                          color: Color.fromARGB(255, 209, 192, 37),
+                        ),
+                        Icon(
+                          Icons.star,
+                          color: Color.fromARGB(255, 209, 192, 37),
+                        ),
+                        Icon(
+                          Icons.star,
+                          color: Color.fromARGB(255, 209, 192, 37),
+                        ),
+                        Icon(
+                          Icons.star,
+                          color: Color.fromARGB(255, 209, 192, 37),
+                        ),
+                        Icon(
+                          Icons.star_outline,
+                          color: Color.fromARGB(255, 209, 192, 37),
+                        )
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          '4.5',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 20),
+                        ),
+                        SizedBox(
+                          width: 2,
+                        ),
+                        Text(
+                          '40 Total Reviews',
+                          style: TextStyle(),
+                        ),
+                        Spacer(),
+                        Icon(
+                          Icons.facebook,
+                          color: Colors.blue,
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Text(
+                      'Bio',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      children: [
+                        Container(
+                          width: 330,
+                          child: Text(
+                              'Hey It is Brad. i have been working with Caring go for a while now and i really enjoy it. They have been good to me and about their employe'),
+                        )
+                      ],
+                    )
+                  ],
+                )),
+            Expanded(
+                flex: 3,
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Text(
+                          'Qualifications',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 20),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 20),
+                    ulRow('Comfortable with Baby and Senior'),
+                    ulRow('Will provide sick care'),
+                    ulRow('None Smoking'),
+                    ulRow('College educated'),
+                  ],
+                ))
           ],
         ),
       ),
+    );
+  }
+}
+
+class ulRow extends StatelessWidget {
+  String text;
+
+  ulRow(this.text);
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Container(
+          margin: EdgeInsets.all(11),
+          height: 10,
+          width: 10,
+          decoration:
+              BoxDecoration(color: Colors.black38, shape: BoxShape.circle),
+        ),
+        SizedBox(
+          width: 15,
+        ),
+        Text(text)
+      ],
     );
   }
 }
