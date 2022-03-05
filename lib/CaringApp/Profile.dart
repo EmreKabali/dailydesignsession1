@@ -1,3 +1,4 @@
+import 'package:dailydesignsession1/CaringApp/Dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 
@@ -22,10 +23,19 @@ class _ProfileState extends State<Profile> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Icon(Icons.arrow_back_ios),
-                    CircleAvatar(
-                      radius: 18,
-                      backgroundImage: NetworkImage(
-                          'https://www.sketchappsources.com/resources/source-image/profile-illustration-gunaldi-yunus.png'),
+                    GestureDetector(
+                      onTap: () {
+                        //Go Dashboard Page
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Dashboard()));
+                      },
+                      child: CircleAvatar(
+                        radius: 18,
+                        backgroundImage: NetworkImage(
+                            'https://www.sketchappsources.com/resources/source-image/profile-illustration-gunaldi-yunus.png'),
+                      ),
                     )
                   ],
                 )),
@@ -68,7 +78,7 @@ class _ProfileState extends State<Profile> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
-                      //TODO we should do dynamic rate function
+                      //TODO we should do dynamic rate function here
                       children: [
                         Icon(
                           Icons.star,
