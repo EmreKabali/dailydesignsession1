@@ -10,6 +10,8 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   double sliderValue = 0;
   double sliderValueforAmount = 0;
+  bool selectTab1 = false;
+  bool selectTab2 = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -154,7 +156,113 @@ class _DashboardState extends State<Dashboard> {
                     )),
                 Expanded(
                   flex: 6,
-                  child: Container(),
+                  child: Column(
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Regularly Schedule',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18),
+                                  ),
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 300,
+                                        child: Text(
+                                            'Work the same hours every week Work the same hours every week Work the same hours every week'),
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    selectTab1 = !selectTab1;
+                                  });
+                                },
+                                child: Container(
+                                  width: 30,
+                                  height: 30,
+                                  decoration: BoxDecoration(
+                                      border: Border.all(
+                                          color: Colors.grey.shade400),
+                                      color: selectTab1
+                                          ? Colors.green
+                                          : Colors.white,
+                                      shape: BoxShape.circle),
+                                  child: selectTab1
+                                      ? Icon(
+                                          Icons.done,
+                                          color: Colors.white,
+                                        )
+                                      : null,
+                                ),
+                              )
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Regularly Schedule',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18),
+                                  ),
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 300,
+                                        child: Text(
+                                            'Work the same hours every week Work the same hours every week Work the same hours every week'),
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    selectTab2 = !selectTab2;
+                                  });
+                                },
+                                child: Container(
+                                  width: 30,
+                                  height: 30,
+                                  decoration: BoxDecoration(
+                                      border: Border.all(
+                                          color: Colors.grey.shade400),
+                                      color: selectTab2
+                                          ? Colors.green
+                                          : Colors.white,
+                                      shape: BoxShape.circle),
+                                  child: selectTab2
+                                      ? Icon(
+                                          Icons.done,
+                                          color: Colors.white,
+                                        )
+                                      : null,
+                                ),
+                              )
+                            ],
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
                 )
               ],
             ),
