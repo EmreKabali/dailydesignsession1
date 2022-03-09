@@ -1,4 +1,5 @@
 import 'package:dailydesignsession1/CaringApp/CaringHome.dart';
+import 'package:dailydesignsession1/MeetingApp/MeetingHome.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +13,7 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: CaringHome(),
+      home: MeetingHome(),
     );
   }
 }
