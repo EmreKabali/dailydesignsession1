@@ -83,7 +83,6 @@ class _MeetingHomeState extends State<MeetingHome> {
                       Row(
                         children: [
                           Container(
-                            margin: EdgeInsets.all(5),
                             padding: EdgeInsets.all(9),
                             height: 40,
                             child: Text(
@@ -131,12 +130,161 @@ class _MeetingHomeState extends State<MeetingHome> {
                                 borderRadius: BorderRadius.circular(10)),
                           ),
                         ],
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                            width: 45,
+                            height: 45,
+                            decoration: BoxDecoration(
+                                color: Colors.blue.shade100,
+                                borderRadius: BorderRadius.circular(6)),
+                            child: Icon(
+                              Icons.date_range,
+                              color: Colors.blue,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('Date'),
+                              Text(
+                                'Friday 26, Feb',
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Container(
+                            width: 45,
+                            height: 45,
+                            decoration: BoxDecoration(
+                                color: Colors.blue.shade100,
+                                borderRadius: BorderRadius.circular(6)),
+                            child: Icon(
+                              Icons.watch_later,
+                              color: Colors.blue,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('Date'),
+                              Text(
+                                '3:00 - 4:00 PM',
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              )
+                            ],
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            'About',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          Row(
+                            children: [
+                              Container(
+                                width: 320,
+                                child: Text(
+                                  'The accent color is blue, it’s quite neutral and doesn’t distract users from important elements of the interfaceCreate an online meeting that is convenient for both sides.',
+                                  style: TextStyle(color: Colors.grey),
+                                ),
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            children: [
+                              Text(
+                                'Read More',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.blue),
+                              )
+                            ],
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        height: 18,
+                      ),
+                      //TODO It should be more clear
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Stack(
+                              children: [
+                                Positioned(
+                                  child: CircleAvatar(
+                                    radius: 20,
+                                    backgroundImage: NetworkImage(
+                                        'https://www.dolutarafi.com/wp-content/uploads/2022/02/Dijital-Hikaye-Anlatimi-1024x576.png'),
+                                  ),
+                                ),
+                                Positioned(
+                                  left: 20,
+                                  child: CircleAvatar(
+                                    backgroundImage: NetworkImage(
+                                        'https://www.dolutarafi.com/wp-content/uploads/2022/02/I%CC%87s%CC%A7-Plani-S%CC%A7ablonlari-1024x576.png'),
+                                  ),
+                                ),
+                                Positioned(
+                                  left: 40,
+                                  child: CircleAvatar(
+                                    backgroundImage: NetworkImage(
+                                        'https://www.dolutarafi.com/wp-content/uploads/2022/02/Pasif-gelir-nasil-olusturabilirim-1024x576.png'),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                          Text(
+                            '+10 Participate',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Row(
+                        children: [
+                          Expanded(
+                              child: ElevatedButton(
+                                  style: ButtonStyle(
+                                      shape: MaterialStateProperty.all<
+                                              RoundedRectangleBorder>(
+                                          RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(10)))),
+                                  onPressed: () {},
+                                  child: Text('Take Part'))),
+                        ],
                       )
                     ],
                   ),
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
