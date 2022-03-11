@@ -1,3 +1,4 @@
+import 'package:dailydesignsession1/MeetingApp/CreateMeeting.dart';
 import 'package:flutter/material.dart';
 
 class MeetingHome extends StatefulWidget {
@@ -276,7 +277,13 @@ class _MeetingHomeState extends State<MeetingHome> {
                                           RoundedRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(10)))),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                CreateMeting()));
+                                  },
                                   child: Text('Take Part'))),
                         ],
                       )
