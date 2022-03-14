@@ -9,6 +9,7 @@ class TaskManager extends StatefulWidget {
 
 class _TaskManagerState extends State<TaskManager> {
   late int selectedIndex;
+  int selectedTask = 0;
 
   @override
   void initState() {
@@ -18,6 +19,8 @@ class _TaskManagerState extends State<TaskManager> {
 
   @override
   Widget build(BuildContext context) {
+    var searchController = TextEditingController();
+
     return Scaffold(
       bottomNavigationBar: Container(
         decoration: BoxDecoration(),
@@ -85,65 +88,156 @@ class _TaskManagerState extends State<TaskManager> {
         ),
       ),
       body: Container(
+          padding: EdgeInsets.only(left: 15, right: 15),
           child: SafeArea(
-        child: Column(
-          children: [
-            Expanded(
-              flex: 1,
-              child: Row(
-                children: [
-                  Spacer(),
-                  Stack(
+            child: Column(
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: Row(
                     children: [
-                      Icon(
-                        Icons.notifications_outlined,
-                        size: 29,
-                      ),
-                      Positioned(
-                        right: 4,
-                        top: 2,
-                        child: Container(
-                          height: 9,
-                          width: 9,
-                          decoration: BoxDecoration(
-                              color: Colors.red, shape: BoxShape.circle),
-                        ),
+                      Spacer(),
+                      Stack(
+                        children: [
+                          Icon(
+                            Icons.notifications_outlined,
+                            size: 29,
+                          ),
+                          Positioned(
+                            right: 4,
+                            top: 2,
+                            child: Container(
+                              height: 9,
+                              width: 9,
+                              decoration: BoxDecoration(
+                                  color: Colors.red, shape: BoxShape.circle),
+                            ),
+                          )
+                        ],
                       )
                     ],
-                  )
-                ],
-              ),
-            ),
-            Expanded(
-                flex: 3,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
+                  ),
+                ),
+                Expanded(
+                    flex: 2,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          'Search',
-                          style: TextStyle(fontSize: 33),
+                        Row(
+                          children: [
+                            Text(
+                              'Search',
+                              style: TextStyle(fontSize: 33),
+                            ),
+                          ],
                         ),
+                        Text(
+                          'Recent Tasks',
+                          style: TextStyle(
+                            fontSize: 33,
+                            color: Color(0xFF560bad),
+                            fontWeight: FontWeight.bold,
+                          ),
+                        )
                       ],
-                    ),
-                    Text(
-                      'Recent Tasks',
-                      style: TextStyle(
-                        fontSize: 33,
-                        color: Color(0xFF560bad),
-                        fontWeight: FontWeight.bold,
+                    )),
+                Expanded(
+                    flex: 2,
+                    child: Container(
+                      padding: EdgeInsets.only(left: 15, right: 15),
+                      child: TextFormField(
+                        controller: searchController,
+                        decoration: InputDecoration(
+                            hintText: 'Search',
+                            hintStyle: TextStyle(color: Colors.grey),
+                            icon: Icon(Icons.search, color: Colors.grey),
+                            border: InputBorder.none),
                       ),
-                    )
-                  ],
-                )),
-            Expanded(flex: 2, child: Placeholder()),
-            Expanded(flex: 4, child: Placeholder()),
-            Expanded(flex: 3, child: Placeholder()),
-          ],
-        ),
-      )),
+                    )),
+                Expanded(
+                    flex: 4,
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            Text(
+                              'In progress',
+                              style: TextStyle(
+                                  fontSize: 25, fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                        Expanded(
+                          child: ListView.builder(
+                              itemCount: 5,
+                              scrollDirection: Axis.horizontal,
+                              itemBuilder: (BuildContext context, int index) {
+                                return GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      //we should change selected index with setstate
+                                      selectedTask = index;
+                                    });
+                                  },
+                                  child: Container(
+                                    margin: EdgeInsets.all(10),
+                                    width: 120,
+                                    height: 160,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(17),
+                                      color: selectedTask == index
+                                          ? Color.fromARGB(255, 109, 58, 133)
+                                          : Colors.white,
+                                    ),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          'Test Spanish',
+                                          style: TextStyle(
+                                              color: selectedTask == index
+                                                  ? Colors.white
+                                                  : Colors.black,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        SizedBox(
+                                          height: 8,
+                                        ),
+                                        Text(
+                                          '21 Oct',
+                                          style: TextStyle(
+                                            color: selectedTask == index
+                                                ? Colors.white
+                                                : Colors.black,
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        Container(
+                                            width: 45,
+                                            height: 45,
+                                            decoration: BoxDecoration(
+                                                color: Colors.yellow,
+                                                borderRadius:
+                                                    BorderRadius.circular(10)),
+                                            child: Icon(Icons.home_outlined)),
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              }),
+                        )
+                      ],
+                    )),
+                Expanded(flex: 3, child: Container()),
+              ],
+            ),
+          )),
     );
   }
 }
