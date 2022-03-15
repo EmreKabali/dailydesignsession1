@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class TaskManager extends StatefulWidget {
@@ -143,7 +144,7 @@ class _TaskManagerState extends State<TaskManager> {
                       ],
                     )),
                 Expanded(
-                    flex: 2,
+                    flex: 1,
                     child: Container(
                       padding: EdgeInsets.only(left: 15, right: 15),
                       child: TextFormField(
@@ -234,7 +235,70 @@ class _TaskManagerState extends State<TaskManager> {
                         )
                       ],
                     )),
-                Expanded(flex: 3, child: Container()),
+                Expanded(
+                    flex: 2,
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Todays Lection',
+                              style: TextStyle(
+                                  fontSize: 27, fontWeight: FontWeight.bold),
+                            ),
+                            Icon(CupertinoIcons.line_horizontal_3)
+                          ],
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Container(
+                          padding: EdgeInsets.only(left: 15, right: 15),
+                          child: Row(
+                            children: [
+                              Container(
+                                height: 40,
+                                width: 40,
+                                decoration: BoxDecoration(
+                                  color: Color.fromARGB(255, 109, 58, 133),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: Icon(
+                                  CupertinoIcons.chart_pie_fill,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'Basic Italian',
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Text(
+                                    '22 October',
+                                    style: TextStyle(fontSize: 13),
+                                  )
+                                ],
+                              ),
+                              Spacer(),
+                              Icon(CupertinoIcons.arrow_right)
+                            ],
+                          ),
+                        )
+                      ],
+                    )),
+                SizedBox(
+                  height: 15,
+                )
               ],
             ),
           )),
