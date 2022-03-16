@@ -1,3 +1,4 @@
+import 'package:dailydesignsession1/TaskManager/Home.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -96,27 +97,7 @@ class _TaskManagerState extends State<TaskManager> {
                 Expanded(
                   flex: 1,
                   child: Row(
-                    children: [
-                      Spacer(),
-                      Stack(
-                        children: [
-                          Icon(
-                            Icons.notifications_outlined,
-                            size: 29,
-                          ),
-                          Positioned(
-                            right: 4,
-                            top: 2,
-                            child: Container(
-                              height: 9,
-                              width: 9,
-                              decoration: BoxDecoration(
-                                  color: Colors.red, shape: BoxShape.circle),
-                            ),
-                          )
-                        ],
-                      )
-                    ],
+                    children: [Spacer(), Notification()],
                   ),
                 ),
                 Expanded(
@@ -179,6 +160,10 @@ class _TaskManagerState extends State<TaskManager> {
                                     setState(() {
                                       //we should change selected index with setstate
                                       selectedTask = index;
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => Home()));
                                     });
                                   },
                                   child: Container(
@@ -302,6 +287,34 @@ class _TaskManagerState extends State<TaskManager> {
               ],
             ),
           )),
+    );
+  }
+}
+
+class Notification extends StatelessWidget {
+  const Notification({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Icon(
+          Icons.notifications_outlined,
+          size: 29,
+        ),
+        Positioned(
+          right: 4,
+          top: 2,
+          child: Container(
+            height: 9,
+            width: 9,
+            decoration:
+                BoxDecoration(color: Colors.red, shape: BoxShape.circle),
+          ),
+        )
+      ],
     );
   }
 }
