@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -82,6 +83,51 @@ class _HomeState extends State<Home> {
                                 ),
                               ),
                             ),
+                            Positioned(
+                              bottom: 5,
+                              child: CircleAvatar(
+                                radius: 23,
+                                backgroundImage: NetworkImage(
+                                    'https://www.sketchappsources.com/resources/source-image/profile-illustration-gunaldi-yunus.png'),
+                              ),
+                            ),
+                            Positioned(
+                              bottom: 5,
+                              left: 30,
+                              child: CircleAvatar(
+                                radius: 23,
+                                backgroundImage: NetworkImage(
+                                    'https://cdn.dribbble.com/users/1355613/screenshots/15252730/media/28f348daf9654c440f5dcf398d8e097a.jpg?compress=1&resize=400x300&vertical=top'),
+                              ),
+                            ),
+                            Positioned(
+                              bottom: 5,
+                              left: 60,
+                              child: CircleAvatar(
+                                radius: 23,
+                                backgroundImage: NetworkImage(
+                                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDMAQz3CzsKrr-fAiZQu_2Wnw6LvlQ3Oaa059T5aC-OJM6IDaIIYXAL82Go__2DWMfbbc&usqp=CAU'),
+                              ),
+                            ),
+                            Positioned(
+                              bottom: 5,
+                              left: 90,
+                              child: CircleAvatar(
+                                radius: 23,
+                                backgroundImage: NetworkImage(
+                                    'https://w1.pngwing.com/pngs/743/500/png-transparent-circle-silhouette-logo-user-user-profile-green-facial-expression-nose-cartoon.png'),
+                              ),
+                            ),
+                            Positioned(
+                              bottom: 3,
+                              right: 0,
+                              child: IconButton(
+                                  onPressed: () {},
+                                  icon: Icon(
+                                    CupertinoIcons.arrow_right,
+                                    color: Colors.white,
+                                  )),
+                            )
                           ]),
                         ),
                       ),
@@ -91,11 +137,92 @@ class _HomeState extends State<Home> {
                     ],
                   ),
                 ),
-                Expanded(flex: 6, child: Placeholder())
+                SizedBox(
+                  height: 10,
+                ),
+                Expanded(
+                    flex: 5,
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            Text(
+                              'Files',
+                              style: TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Expanded(
+                          child: ListView.builder(
+                              itemCount: 10,
+                              scrollDirection: Axis.vertical,
+                              itemBuilder: (BuildContext context, int inde) {
+                                return CardItem();
+                              }),
+                        )
+                      ],
+                    ))
               ],
             )),
       ),
     );
+  }
+}
+
+class CardItem extends StatelessWidget {
+  const CardItem({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        margin: EdgeInsets.only(bottom: 50, left: 5, right: 5),
+        padding: EdgeInsets.only(left: 15, right: 15),
+        child: Row(
+          children: [
+            Container(
+              width: 40,
+              height: 40,
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: NetworkImage(
+                          'https://img.icons8.com/nolan/64/file.png'))),
+            ),
+            SizedBox(
+              width: 20,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Words B2',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  '10 pages',
+                  style: TextStyle(fontSize: 11),
+                )
+              ],
+            ),
+            Spacer(),
+            Container(
+              width: 30,
+              height: 30,
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: NetworkImage(
+                          'https://img.icons8.com/external-flatart-icons-lineal-color-flatarticons/64/000000/external-arrow-arrow-flatart-icons-lineal-color-flatarticons-4.png'))),
+            )
+          ],
+        ));
   }
 }
 
