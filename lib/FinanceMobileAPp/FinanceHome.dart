@@ -1,3 +1,4 @@
+import 'package:dailydesignsession1/FinanceMobileAPp/FinanceDashboard.dart';
 import 'package:flutter/material.dart';
 
 class FinanceHome extends StatefulWidget {
@@ -67,7 +68,13 @@ class _FinanceHomeState extends State<FinanceHome> {
                             color: Color(0xFF5463FF),
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30)),
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          FinanceDashboard()));
+                            },
                             child: Text(
                               'Share',
                               style: TextStyle(color: Colors.white),
