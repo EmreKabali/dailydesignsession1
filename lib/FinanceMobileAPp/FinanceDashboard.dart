@@ -10,6 +10,8 @@ class FinanceDashboard extends StatefulWidget {
 class _FinanceDashboardState extends State<FinanceDashboard> {
   double amount = 2;
   double days = 6;
+  bool check1 = false;
+  bool check2 = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -135,7 +137,7 @@ class _FinanceDashboardState extends State<FinanceDashboard> {
                   height: 20,
                 ),
                 Expanded(
-                    flex: 4,
+                    flex: 3,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -206,8 +208,69 @@ class _FinanceDashboardState extends State<FinanceDashboard> {
                         ),
                       ],
                     )),
-                Expanded(flex: 3, child: Placeholder()),
-                Expanded(flex: 3, child: Placeholder()),
+                Flexible(
+                    flex: 3,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Checkbox(
+                                activeColor: Colors.green,
+                                value: check1,
+                                onChanged: (value) {
+                                  setState(() {
+                                    check1 = value!;
+                                  });
+                                }),
+                            Text(
+                              'Fundemental Analysis',
+                              style: TextStyle(color: Colors.grey),
+                            )
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Checkbox(
+                                activeColor: Colors.green,
+                                value: check2,
+                                onChanged: (value) {
+                                  setState(() {
+                                    check2 = value!;
+                                  });
+                                }),
+                            Text(
+                              'Technical Analysis',
+                              style: TextStyle(color: Colors.grey),
+                            )
+                          ],
+                        )
+                      ],
+                    )),
+                Expanded(
+                    flex: 2,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        FlatButton(
+                            minWidth: MediaQuery.of(context).size.width * 0.4,
+                            height: 40,
+                            color: Color(0xFF5463FF),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30)),
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          FinanceDashboard()));
+                            },
+                            child: Text(
+                              'Next',
+                              style: TextStyle(color: Colors.white),
+                            ))
+                      ],
+                    )),
               ],
             ),
           )),
