@@ -1,3 +1,4 @@
+import 'package:dailydesignsession1/FinanceMobileAPp/Summary.dart';
 import 'package:flutter/material.dart';
 
 class FinanceDashboard extends StatefulWidget {
@@ -263,7 +264,7 @@ class _FinanceDashboardState extends State<FinanceDashboard> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (BuildContext context) =>
-                                          FinanceDashboard()));
+                                          Summary()));
                             },
                             child: Text(
                               'Next',
