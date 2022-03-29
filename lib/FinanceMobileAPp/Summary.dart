@@ -153,9 +153,76 @@ class _SummaryState extends State<Summary> {
                           height: 10,
                         ),
                         Text('Today'),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Expanded(
+                          child: ListView.builder(
+                              itemCount: 10,
+                              itemBuilder: (BuildContext context, int index) {
+                                return Container(
+                                  padding: EdgeInsets.only(left: 5, right: 5),
+                                  margin: EdgeInsets.only(
+                                      left: 15, right: 15, bottom: 10),
+                                  child: Row(
+                                    children: [
+                                      CircleAvatar(
+                                        radius: 23,
+                                        backgroundImage: NetworkImage(
+                                            'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'),
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            'Andrew Yung',
+                                            style: TextStyle(
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                          Text(
+                                            '8:45 AM',
+                                            style: TextStyle(
+                                              fontSize: 11,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      Spacer(),
+                                      Text(
+                                        '+156',
+                                        style: TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.green),
+                                      )
+                                    ],
+                                  ),
+                                );
+                              }),
+                        )
                       ],
                     )),
-                Expanded(flex: 2, child: Placeholder()),
+                Expanded(
+                    flex: 2,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          CupertinoIcons.refresh,
+                          color: Color(0xFF5463FF),
+                        ),
+                        Text(
+                          'Update',
+                          style:
+                              TextStyle(fontSize: 20, color: Color(0xFF5463FF)),
+                        )
+                      ],
+                    )),
               ],
             ),
           )),
