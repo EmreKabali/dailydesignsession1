@@ -4,6 +4,8 @@ import 'package:dailydesignsession1/MeetingApp/MeetingHome.dart';
 import 'package:dailydesignsession1/TaskManager/TaskManager.dart';
 import 'package:flutter/material.dart';
 
+import 'FoodMobile/FoodHome.dart';
+
 void main() {
   runApp(const MainPage());
 }
@@ -15,7 +17,7 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: FinanceHome(),
+      home: FoodHome(),
     );
   }
 }
