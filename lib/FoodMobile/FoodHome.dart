@@ -58,7 +58,28 @@ class _FoodHomeState extends State<FoodHome> {
                     )
                   ],
                 )),
-            Expanded(flex: 1, child: Placeholder()),
+            Expanded(
+                flex: 1,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 30.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: 65,
+                        width: 150,
+                        child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10)),
+                              primary: Color.fromARGB(255, 32, 32, 32),
+                            ),
+                            onPressed: () {},
+                            child: Text('Get Started')),
+                      )
+                    ],
+                  ),
+                )),
           ],
         ),
       )),
