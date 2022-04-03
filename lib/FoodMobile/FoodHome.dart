@@ -1,4 +1,5 @@
 import 'package:dailydesignsession1/ColorUtilities.dart';
+import 'package:dailydesignsession1/FoodMobile/FoodDetail.dart';
 import 'package:flutter/material.dart';
 
 class FoodHome extends StatefulWidget {
@@ -74,7 +75,13 @@ class _FoodHomeState extends State<FoodHome> {
                                   borderRadius: BorderRadius.circular(10)),
                               primary: Color.fromARGB(255, 32, 32, 32),
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          FoodDetail()));
+                            },
                             child: Text('Get Started')),
                       )
                     ],
