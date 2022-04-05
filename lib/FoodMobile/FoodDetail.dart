@@ -80,9 +80,70 @@ class _FoodDetailState extends State<FoodDetail> {
                         );
                       })),
               Expanded(
-                flex: 10,
-                child: Placeholder(),
-              )
+                  flex: 10,
+                  child: ListView.builder(
+                      scrollDirection: Axis.vertical,
+                      itemCount: 10,
+                      itemBuilder: (BuildContext context, int index) {
+                        return Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: 250,
+                          child: Stack(
+                            children: [
+                              Positioned(
+                                top: 80,
+                                left: 0,
+                                right: 0,
+                                child: Container(
+                                  height: 160,
+                                  width: MediaQuery.of(context).size.width,
+                                  decoration: BoxDecoration(
+                                      gradient: LinearGradient(colors: [
+                                        const Color(0xFF6D51A5),
+                                        const Color(0xFFE4A7C5),
+                                      ]),
+                                      color: ColorUtilities.foodMobile,
+                                      borderRadius: BorderRadius.circular(25)),
+                                ),
+                              ),
+                              Positioned(
+                                top: 0,
+                                left: MediaQuery.of(context).size.width / 4,
+                                child: Container(
+                                  height: 170,
+                                  width: 150,
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          image:
+                                              AssetImage('assets/food.png'))),
+                                ),
+                              ),
+                              Positioned(
+                                top: 150,
+                                left: 0,
+                                right: 0,
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      'Asian Food',
+                                      style: TextStyle(
+                                          fontSize: 25,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Text(
+                                      'Classic Asian recipes from  top chefs',
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          color: Colors.grey.shade300),
+                                    )
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        );
+                      }))
             ],
           ),
         ),
