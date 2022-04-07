@@ -13,9 +13,110 @@ class FoodDetail extends StatefulWidget {
 class _FoodDetailState extends State<FoodDetail> {
   List<String> items = ['Popular', 'Recommended', 'New', 'Old'];
   int selectedItem = 0;
+  int selectedBottom = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: Container(
+          padding: EdgeInsets.all(10),
+          margin: EdgeInsets.all(2),
+          height: 60,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    selectedBottom = 0;
+                  });
+                },
+                child: Container(
+                    width: 40,
+                    height: 40,
+                    decoration: BoxDecoration(
+                        color: selectedBottom == 0
+                            ? ColorUtilities.foodMobile
+                            : Colors.white,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Icon(
+                      CupertinoIcons.profile_circled,
+                      color: selectedBottom == 0 ? Colors.white : Colors.grey,
+                    )),
+              ),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    selectedBottom = 1;
+                  });
+                },
+                child: Container(
+                    width: 40,
+                    height: 40,
+                    decoration: BoxDecoration(
+                        color: selectedBottom == 1
+                            ? ColorUtilities.foodMobile
+                            : Colors.white,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Icon(CupertinoIcons.search,
+                        color:
+                            selectedBottom == 1 ? Colors.white : Colors.grey)),
+              ),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    selectedBottom = 2;
+                  });
+                },
+                child: Container(
+                    width: 40,
+                    height: 40,
+                    decoration: BoxDecoration(
+                        color: selectedBottom == 2
+                            ? ColorUtilities.foodMobile
+                            : Colors.white,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Icon(CupertinoIcons.add_circled,
+                        color:
+                            selectedBottom == 2 ? Colors.white : Colors.grey)),
+              ),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    selectedBottom = 3;
+                  });
+                },
+                child: Container(
+                    width: 40,
+                    height: 40,
+                    decoration: BoxDecoration(
+                        color: selectedBottom == 3
+                            ? ColorUtilities.foodMobile
+                            : Colors.white,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Icon(CupertinoIcons.bag,
+                        color:
+                            selectedBottom == 3 ? Colors.white : Colors.grey)),
+              ),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    selectedBottom = 4;
+                  });
+                },
+                child: Container(
+                    width: 40,
+                    height: 40,
+                    decoration: BoxDecoration(
+                        color: selectedBottom == 4
+                            ? ColorUtilities.foodMobile
+                            : Colors.white,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Icon(CupertinoIcons.settings,
+                        color:
+                            selectedBottom == 4 ? Colors.white : Colors.grey)),
+              )
+            ],
+          )),
       body: SafeArea(
         child: Container(
           padding: EdgeInsets.only(left: 15, right: 15),
@@ -58,8 +159,8 @@ class _FoodDetailState extends State<FoodDetail> {
                             });
                           },
                           child: Container(
-                            margin: EdgeInsets.all(5),
-                            padding: EdgeInsets.all(12),
+                            margin: EdgeInsets.all(3),
+                            padding: EdgeInsets.all(10),
                             decoration: BoxDecoration(
                                 color: selectedItem == index
                                     ? ColorUtilities.foodMobile
