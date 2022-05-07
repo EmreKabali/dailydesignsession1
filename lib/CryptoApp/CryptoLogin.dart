@@ -1,3 +1,4 @@
+import 'package:dailydesignsession1/CryptoApp/CryptoDashboard.dart';
 import 'package:flutter/material.dart';
 
 class CryptoLogin extends StatefulWidget {
@@ -90,7 +91,14 @@ class _CryptoLoginState extends State<CryptoLogin> {
                         width: MediaQuery.of(context).size.width,
                         height: 50,
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            //we can go other page
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        CryptoDashboard()));
+                          },
                           style: ElevatedButton.styleFrom(
                               primary: Colors.black,
                               shape: RoundedRectangleBorder(
