@@ -38,6 +38,7 @@ dependencies:
   flutter_markdown: ^0.6.9
   lottie: any
   google_fonts: any
+  unicons: ^2.1.0
 
 dev_dependencies:
   flutter_test:

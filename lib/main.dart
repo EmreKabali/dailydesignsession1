@@ -3,6 +3,7 @@ import 'package:dailydesignsession1/CryptoApp/CryptoLogin.dart';
 import 'package:dailydesignsession1/FinanceMobileAPp/FinanceHome.dart';
 import 'package:dailydesignsession1/HappyFathersDay/FathersDay.dart';
 import 'package:dailydesignsession1/MeetingApp/MeetingHome.dart';
+import 'package:dailydesignsession1/ProjectManagement/TaskHomePage.dart';
 import 'package:dailydesignsession1/TaskManager/TaskManager.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,7 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: FathersDay(),
+      home: TaskHome(),
     );
   }
 }
